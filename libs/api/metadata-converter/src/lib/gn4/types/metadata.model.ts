@@ -147,6 +147,8 @@ export type MetadataObject = Partial<{
   logo: string
   mainLanguage: string
   metadataIdentifier: string
+  otherKeywords: Keywords
+  placeKeywords: Keywords
   overview: Overview[]
   owner: string
   pointOfContactOrg: string
@@ -177,6 +179,7 @@ export type MetadataObject = Partial<{
   standardVersionObject: MultilingualField
   tag: Keywords
   tagNumber: string
+  themesSIG: Keywords
   userSavedCount: string
   userinfo: string
   uuid: string

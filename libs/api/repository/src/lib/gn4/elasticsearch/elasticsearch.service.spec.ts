@@ -527,6 +527,9 @@ describe('ElasticsearchService', () => {
           'tag',
           'MD_LegalConstraintsUseLimitationObject',
           'qualityScore',
+          'themesSIG',
+          'otherKeywords',
+          'placeKeywords'
         ],
         query: {
           bool: {

@@ -4,6 +4,7 @@ import {
   ROUTER_ROUTE_DATASET,
   ROUTER_ROUTE_SEARCH,
 } from '@geonetwork-ui/feature/router'
+import { ApproachPageComponent } from '../home/approach-page/approach-page.component'
 import { HomePageComponent } from '../home/home-page/home-page.component'
 import { NewsPageComponent } from '../home/news-page/news-page.component'
 import { OrganisationsPageComponent } from '../home/organisations-page/organisations-page.component'
@@ -13,6 +14,7 @@ import {
   ROUTER_ROUTE_HOME,
   ROUTER_ROUTE_NEWS,
   ROUTER_ROUTE_ORGANISATIONS,
+  ROUTER_ROUTE_APPROACH,
 } from './constants'
 
 @Injectable({
@@ -61,6 +63,13 @@ export class DatahubRouterService {
           {
             path: ROUTER_ROUTE_ORGANISATIONS,
             component: OrganisationsPageComponent,
+            data: {
+              shouldDetach: true,
+            },
+          },
+          {
+            path: ROUTER_ROUTE_APPROACH,
+            component: ApproachPageComponent,
             data: {
               shouldDetach: true,
             },

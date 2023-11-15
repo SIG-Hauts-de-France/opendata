@@ -120,6 +120,12 @@ export class Gn4FieldMapper {
         getFirstValue(selectField<string>(source, 'creationDateForResource'))
       ),
     }),
+    revisionDateForResource: (output, source) => ({
+      ...output,
+      datasetUpdated: toDate(
+        getFirstValue(selectField<string>(source, 'revisionDateForResource'))
+      ),
+    }),
     createDate: (output, source) => ({
       ...output,
       recordCreated: toDate(selectField<string>(source, 'createDate')),
@@ -175,6 +181,30 @@ export class Gn4FieldMapper {
         selectField<SourceWithUnknownProps[]>(source, 'tag')
       ).map((tag) => selectTranslatedValue<string>(tag, this.lang3)),
     }),
+    "keywordType-place": (output, source) => this.addExtra(
+      {
+        placeKeywords: getAsArray(
+          selectField<SourceWithUnknownProps[]>(source, 'keywordType-place')
+        ).map((placeKeyword) => selectTranslatedValue<string>(placeKeyword, this.lang3)),
+      },
+      output
+    ),
+    "th_otherKeywords-": (output, source) => this.addExtra(
+      {
+        otherKeywords: getAsArray(
+          selectField<SourceWithUnknownProps[]>(source, 'th_otherKeywords-')
+        ).map((otherKeyword) => selectTranslatedValue<string>(otherKeyword, this.lang3)),
+      },
+      output
+    ),
+    th_themes_sig: (output, source) => this.addExtra(
+      {
+        themesSIG: getAsArray(
+          selectField<SourceWithUnknownProps[]>(source, 'th_themes_sig')
+        ).map((themeSIG) => selectTranslatedValue<string>(themeSIG, this.lang3)),
+      },
+      output
+    ),
     inspireTheme: (output, source) => ({
       ...output,
       themes: [

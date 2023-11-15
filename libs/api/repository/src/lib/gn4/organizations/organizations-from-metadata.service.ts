@@ -159,7 +159,7 @@ export class OrganizationsFromMetadataService
           org: {
             terms: {
               field: gnVersion.startsWith('4.2.2')
-                ? 'contactForResource.organisation'
+                ? 'contactForResource.organisation.keyword'
                 : 'contactForResource.organisationObject.default.keyword',
               exclude: '',
               size: 5000,

@@ -51,6 +51,10 @@ export class FieldsService {
       this.injector
     ),
     topic: new GnUiTranslationSearchField('cl_topic.key', 'asc', this.injector),
+    tag: new SimpleSearchField('tag.default', 'asc', this.injector),
+    otherKeywords: new SimpleSearchField('th_otherKeywords-.default', 'asc', this.injector),
+    placeKeywords: new SimpleSearchField('keywordType-place.default', 'asc', this.injector),
+    themesSIG: new SimpleSearchField('th_themes_sig.default', 'asc', this.injector),
     inspireKeyword: new SimpleSearchField(
       'th_httpinspireeceuropaeutheme-theme_tree.default',
       'asc',

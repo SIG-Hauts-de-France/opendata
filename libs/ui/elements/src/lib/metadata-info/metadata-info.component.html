@@ -1,3 +1,18 @@
+<ng-container>
+    <button
+      *ngIf="isNew"
+      class="inline-block uppercase bg-secondary text-white news-button"
+      translate
+      >record.metadata.isNew</button
+    >
+    <button
+      *ngIf="isUpdated"
+      class="inline-block uppercase bg-primary text-white news-button"
+      translate
+      >record.metadata.isUpdated</button
+    >
+</ng-container>
+
 <p
   class="text-[28px] text-title text-center mb-6 font-title sm:text-left"
   translate
@@ -10,35 +25,65 @@
       class="whitespace-pre-line break-words"
       [innerHTML]="metadata.abstract | safe: 'html'"
       *ngIf="metadata.abstract"
+      gnUiLinkify
     ></p>
   </gn-ui-content-ghost>
 </div>
 
-<ng-container *ngIf="metadata.keywords?.length">
-  <p class="mb-3 font-medium text-primary text-sm" translate>
-    record.metadata.keywords
+<ng-container *ngIf="metadata.extras?.themesSIG?.length">
+  <p class="mt-3 font-medium text-primary text-sm" translate>
+    record.metadata.themes
   </p>
-  <div class="mb-9 sm:mb-16">
+  <div class="mb-5">
     <gn-ui-badge
       class="inline-block mr-2 mb-2 lowercase"
-      (click)="onKeywordClick(keyword)"
+      (click)="onThemeSIGClick(theme)"
       [clickable]="true"
-      *ngFor="let keyword of metadata.keywords"
+      *ngFor="let theme of metadata.extras?.themesSIG"
+      >{{ theme }}</gn-ui-badge
+    >
+  </div>
+</ng-container>
+
+<ng-container *ngIf="metadata.extras?.otherKeywords?.length">
+  <p class="mt-3 font-medium text-primary text-sm" translate>
+    record.metadata.keywords
+  </p>
+  <div class="mb-5">
+    <gn-ui-badge
+      class="inline-block mr-2 mb-2 lowercase"
+      (click)="onOtherKeywordClick(keyword)"
+      [clickable]="true"
+      *ngFor="let keyword of metadata.extras?.otherKeywords"
       >{{ keyword }}</gn-ui-badge
     >
   </div>
 </ng-container>
 
-<gn-ui-expandable-panel
-  class="metadata-origin"
+<ng-container *ngIf="metadata.extras?.placeKeywords?.length">
+  <p class="mt-3 font-medium text-primary text-sm" translate>
+    search.filters.placeKeywords
+  </p>
+  <div class="mb-5">
+    <gn-ui-badge
+      class="inline-block mr-2 mb-2 lowercase"
+      (click)="onPlaceKeywordClick(keyword)"
+      [clickable]="true"
+      *ngFor="let keyword of metadata.extras?.placeKeywords"
+      >{{ keyword }}</gn-ui-badge
+    >
+  </div>
+</ng-container>
+
+<div
   *ngIf="
-    metadata.lineage ||
-    metadata.recordUpdated ||
-    metadata.updateFrequency ||
-    metadata.status
-  "
-  [title]="'record.metadata.origin' | translate"
+      metadata.lineage ||
+      metadata.recordUpdated ||
+      metadata.updateFrequency ||
+      metadata.status
+    "
 >
+  <p class="mt-3 font-medium text-primary text-sm" translate>record.metadata.origin</p>
   <p
     *ngIf="metadata.lineage"
     class="mb-5 pt-4 whitespace-pre-line break-words"
@@ -49,12 +94,25 @@
   <div
     class="py-4 px-6 rounded bg-gray-100 grid grid-cols-2 gap-y-[10px] gap-x-[20px] text-gray-700 info-grid"
   >
-    <div *ngIf="metadata.recordUpdated">
-      <p class="text-sm" translate>record.metadata.updatedOn</p>
+    <div>
+        <p class="text-sm" translate>record.metadata.datasetCreated</p>
+        <p class="text-primary font-medium mt-1">
+          {{ metadata.datasetCreated && metadata.datasetCreated.toLocaleDateString() || '-' }}
+        </p>
+    </div>
+    <div>
+        <p class="text-sm" translate>record.metadata.datasetUpdated</p>
+        <p class="text-primary font-medium mt-1">
+          {{ metadata.datasetUpdated && metadata.datasetUpdated.toLocaleDateString() || '-'  }}
+        </p>
+    </div>
+    <div>
+      <p class="text-sm" translate>record.metadata.recordUpdated</p>
       <p class="text-primary font-medium mt-1">
-        {{ metadata.recordUpdated && metadata.recordUpdated.toLocaleString() }}
+        {{ metadata.recordUpdated && metadata.recordUpdated.toLocaleDateString() || '-' }}
       </p>
     </div>
+    
     <div *ngIf="updateFrequency">
       <p class="text-sm" translate>record.metadata.updateFrequency</p>
       <p
@@ -65,19 +123,11 @@
         {{ updateFrequency }}
       </p>
     </div>
-    <div *ngIf="metadata.status">
-      <p class="text-sm" translate>record.metadata.updateStatus</p>
-      <p class="text-primary font-medium mt-1" translate>
-        domain.record.status.{{ metadata.status }}
-      </p>
-    </div>
   </div>
-</gn-ui-expandable-panel>
-<gn-ui-expandable-panel [title]="'record.metadata.usage' | translate">
+</div>
+<div>
+  <p class="mt-3 font-medium text-primary text-sm" translate>record.metadata.usage</p>
   <div class="py-4 px-6 rounded bg-gray-100 text-gray-700 flex flex-wrap gap-2">
-    <gn-ui-badge *ngIf="metadata.extras?.isOpenData">
-      <span translate>record.metadata.isOpenData</span>
-    </gn-ui-badge>
     <span
       class="text-primary font-medium"
       *ngFor="let usage of usages"
@@ -89,11 +139,11 @@
       {{ 'record.metadata.noUsage' | translate }}
     </span>
   </div>
-</gn-ui-expandable-panel>
-<gn-ui-expandable-panel
+</div>
+<div
   *ngIf="metadata.landingPage"
-  [title]="'record.metadata.details' | translate"
 >
+<p class="mt-3 font-medium text-primary text-sm" translate>record.metadata.details</p>
   <div class="py-5 px-5 rounded bg-gray-100 text-gray-700">
     <p class="text-sm" translate>record.metadata.sheet</p>
     <p class="text-primary font-medium mt-1" translate>
@@ -106,4 +156,4 @@
       </a>
     </p>
   </div>
-</gn-ui-expandable-panel>
+</div>

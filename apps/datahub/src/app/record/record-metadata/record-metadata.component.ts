@@ -7,6 +7,8 @@ import { filter, map, mergeMap } from 'rxjs/operators'
 import { OrganizationsServiceInterface } from '@geonetwork-ui/common/domain/organizations.service.interface'
 import { Organization } from '@geonetwork-ui/common/domain/record'
 import { MdViewFacade } from '@geonetwork-ui/feature/record'
+import { AuthService } from '@geonetwork-ui/api/repository/gn4'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'datahub-record-metadata',
@@ -55,12 +57,20 @@ export class RecordMetadataComponent {
   errorTypes = ErrorType
   selectedTabIndex$ = new BehaviorSubject(0)
 
+  
+
   constructor(
     public facade: MdViewFacade,
     private searchService: SearchService,
     private sourceService: SourcesService,
-    private orgsService: OrganizationsServiceInterface
+    private orgsService: OrganizationsServiceInterface,
+    private authService: AuthService,
+    private router: Router,
   ) {}
+
+  isAuthenticated$ = this.authService
+    .authReady()
+    .pipe(map((user) => !!user?.id))
 
   onTabIndexChange(index: number): void {
     this.selectedTabIndex$.next(index)
@@ -69,9 +79,18 @@ export class RecordMetadataComponent {
     }, 0)
   }
 
-  onInfoKeywordClick(keyword: string) {
-    this.searchService.updateFilters({ any: keyword })
+  onPlaceKeywordClick(placeKeywords: string) {
+    this.router.navigate(['/search'], { queryParams: { placeKeywords } });
   }
+
+  onOtherKeywordClick(otherKeywords: string) {
+    this.router.navigate(['/search'], { queryParams: { otherKeywords } });
+  }
+
+  onThemeSIGClick(themesSIG: string) {
+    this.router.navigate(['/search'], { queryParams: { themesSIG } });
+  }
+
   onOrganizationClick(org: Organization) {
     this.orgsService
       .getFiltersForOrgs([org])
