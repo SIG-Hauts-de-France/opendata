@@ -26,6 +26,14 @@ export class SortByComponent implements OnInit {
       value: SortByEnum.CREATE_DATE.join(','),
     },
     {
+      label: marker('results.sortBy.dateStampAsc'),
+      value: SortByEnum.CREATE_DATE_ASC.join(','),
+    },
+    {
+      label: marker('results.sortBy.dateChange'),
+      value: SortByEnum.CHANGE_DATE.join(','),
+    },
+    {
       label: marker('results.sortBy.popularity'),
       value: SortByEnum.POPULARITY.join(','),
     },
