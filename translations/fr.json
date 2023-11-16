@@ -144,6 +144,7 @@
   "facets.block.title.tag.default": "Tag",
   "facets.block.title.th_regions_tree.default": "Régions",
   "favorite.not.authenticated.tooltip": "<div><a href=' {link} '>Connectez-vous</a> pour avoir accès à cette fonctionnalité</div>",
+  "header.everyDataHdf": "Toutes les données de la Région Hauts-de-France",
   "language.ca": "Català",
   "language.cs": "Čeština",
   "language.de": "Deutsch",

@@ -21,6 +21,11 @@
   <div class="bg-secondary px-5">
     <div class="container-lg mx-auto py-8 relative z-50"
       [style.transform]="'translate(0, ' + (1 - expandRatio) * 45 + 'px)'">
+      <div class="container-lg mx-auto">
+        <div class="text-white text-[24px]" [style.opacity]="expandRatio"
+          [innerHTML]="'header.everyDataHdf' | translate">
+        </div>
+      </div>
       <gn-ui-fuzzy-search class="text-[18px]" (itemSelected)="onFuzzySearchSelection($event)"></gn-ui-fuzzy-search>
       <div class="flex h-0 py-5 gap-3" [style.opacity]="-0.6 + expandRatio * 2">
         <datahub-header-badge-button [routerLink]="ROUTE_SEARCH" *ngIf="isAuthenticated$ | async" icon="star"
