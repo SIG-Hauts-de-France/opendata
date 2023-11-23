@@ -1,4 +1,9 @@
 {
+  "approach.headers.contact": "Contact",
+  "approach.headers.documents": "Documents-cadres",
+  "approach.headers.geo2france": "Articulation avec Geo2France",
+  "approach.headers.legal": "Mentions légales",
+  "approach.headers.presentation": "Présentation",
   "catalog.figures.datasets": "{count, plural, =0{données} one{donnée} other{données}}",
   "catalog.figures.organisations": "{count, plural, =0{organisations} one{organisation} other{organisations}}",
   "chart.aggregation.average": "moyenne",
@@ -96,6 +101,7 @@
   "datafeeder.wizard.emptyRequiredValuesMessage": "Veuillez remplir les champs obligatoires",
   "datafeeder.wizardSummarize.createdAt": "Créée le",
   "datafeeder.wizardSummarize.scale": "Échelle",
+  "datahub.header.approach": "Notre démarche",
   "datahub.header.datasets": "Données",
   "datahub.header.lastRecords": "Les plus récentes",
   "datahub.header.myfavorites": "Mes favoris",

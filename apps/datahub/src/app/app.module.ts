@@ -66,6 +66,7 @@ import { OrganisationsPageComponent } from './home/organisations-page/organisati
 import { SearchFiltersComponent } from './home/search/search-filters/search-filters.component'
 import { SearchPageComponent } from './home/search/search-page/search-page.component'
 import { HeaderRecordComponent } from './record/header-record/header-record.component'
+import { NavigationApproachComponent } from './home/navigation-approach/navigation-approach.component'
 import { NavigationBarComponent } from './record/navigation-bar/navigation-bar.component'
 import { RecordApisComponent } from './record/record-apis/record-apis.component'
 import { RecordDownloadsComponent } from './record/record-downloads/record-downloads.component'
@@ -95,6 +96,7 @@ export const metaReducers: MetaReducer[] = !environment.production ? [] : []
     LastCreatedComponent,
     KeyFiguresComponent,
     NavigationMenuComponent,
+    NavigationApproachComponent,
     RecordRelatedRecordsComponent,
     RecordMetadataComponent,
     RecordOtherlinksComponent,

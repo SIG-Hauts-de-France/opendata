@@ -7,7 +7,7 @@ import {
 import { map } from 'rxjs/operators'
 import {
   ROUTER_ROUTE_NEWS,
-  ROUTER_ROUTE_ORGANISATIONS,
+  ROUTER_ROUTE_APPROACH,
 } from '../../router/constants'
 
 marker('datahub.header.news')
@@ -31,8 +31,8 @@ export class NavigationMenuComponent {
       label: 'datahub.header.datasets',
     },
     {
-      link: `${ROUTER_ROUTE_ORGANISATIONS}`,
-      label: 'datahub.header.organisations',
+      link: `${ROUTER_ROUTE_APPROACH}`,
+      label: 'datahub.header.approach',
     },
   ]
 

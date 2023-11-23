@@ -21,40 +21,45 @@
   <div class="bg-secondary px-5">
     <div class="container-lg mx-auto py-8 relative z-50"
       [style.transform]="'translate(0, ' + (1 - expandRatio) * 45 + 'px)'">
-      <div class="container-lg mx-auto">
-        <div class="text-white text-[24px]" [style.opacity]="expandRatio"
-          [innerHTML]="'header.everyDataHdf' | translate">
-        </div>
-      </div>
-      <gn-ui-fuzzy-search class="text-[18px]" (itemSelected)="onFuzzySearchSelection($event)"></gn-ui-fuzzy-search>
-      <div class="flex h-0 py-5 gap-3" [style.opacity]="-0.6 + expandRatio * 2">
-        <datahub-header-badge-button [routerLink]="ROUTE_SEARCH" *ngIf="isAuthenticated$ | async" icon="star"
-          label="datahub.header.myfavorites" [toggled]="searchFacade.favoritesOnly$ | async"
-          (action)="listFavorites($event)"></datahub-header-badge-button>
-        <!-- <div *ngIf="displaySortBadges$ | async">
-          <button type="button" class="badge-btn hover-bg-primary-darker"
-            (click)="clearSearchAndSort(SORT_BY_PARAMS.CREATE_DATE)">
-            <span translate="">datahub.header.lastRecords</span>
-          </button>
-        </div>
-        <div *ngIf="displaySortBadges$ | async">
-          <button type="button" class="badge-btn hover-bg-primary-darker"
-            (click)="clearSearchAndSort(SORT_BY_PARAMS.POPULARITY)">
-            <span translate="">datahub.header.popularRecords</span>
-          </button>
-        </div> -->
-        <div *ngFor="let preset of searchConfig?.SEARCH_PRESET">
-          <div>
-            <button
-              type="button"
-              class="badge-btn bg-primary-opacity-50 hover-bg-primary-opacity-100"
-              (click)="clearSearchAndFilterAndSort(preset)"
-            >
-              <span translate="">{{ preset['name'] }}</span>
-            </button>
+      <ng-container *ngIf="isDataOrHomeRoute$ | async">
+        <div class="container-lg mx-auto">
+          <div class="text-white text-[24px]" [style.opacity]="expandRatio"
+            [innerHTML]="'header.everyDataHdf' | translate">
           </div>
         </div>
-      </div>
+        <gn-ui-fuzzy-search class="text-[18px]" (itemSelected)="onFuzzySearchSelection($event)"></gn-ui-fuzzy-search>
+        <div class="flex h-0 py-5 gap-3" [style.opacity]="-0.6 + expandRatio * 2">
+          <datahub-header-badge-button [routerLink]="ROUTE_SEARCH" *ngIf="isAuthenticated$ | async" icon="star"
+            label="datahub.header.myfavorites" [toggled]="searchFacade.favoritesOnly$ | async"
+            (action)="listFavorites($event)"></datahub-header-badge-button>
+          <!-- <div *ngIf="displaySortBadges$ | async">
+            <button type="button" class="badge-btn hover-bg-primary-darker"
+              (click)="clearSearchAndSort(SORT_BY_PARAMS.CREATE_DATE)">
+              <span translate="">datahub.header.lastRecords</span>
+            </button>
+          </div>
+          <div *ngIf="displaySortBadges$ | async">
+            <button type="button" class="badge-btn hover-bg-primary-darker"
+              (click)="clearSearchAndSort(SORT_BY_PARAMS.POPULARITY)">
+              <span translate="">datahub.header.popularRecords</span>
+            </button>
+          </div> -->
+          <div *ngFor="let preset of searchConfig?.SEARCH_PRESET">
+            <div>
+              <button
+                type="button"
+                class="badge-btn bg-primary-opacity-50 hover-bg-primary-opacity-100"
+                (click)="clearSearchAndFilterAndSort(preset)"
+              >
+                <span translate="">{{ preset['name'] }}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="isApproachRoute$ | async">
+        <datahub-navigation-approach></datahub-navigation-approach>
+      </ng-container>
     </div>
   </div>
 </header>

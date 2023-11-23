@@ -18,11 +18,13 @@ import {
 } from '@geonetwork-ui/util/app-config'
 import { SortByEnum, SortByField } from '@geonetwork-ui/common/domain/search'
 import { map } from 'rxjs/operators'
-import { ROUTER_ROUTE_NEWS } from '../../router/constants'
+import { ROUTER_ROUTE_APPROACH, ROUTER_ROUTE_NEWS } from '../../router/constants'
 import { firstValueFrom, lastValueFrom } from 'rxjs'
 import { CatalogRecord } from '@geonetwork-ui/common/domain/record'
 import { sortByFromString } from '@geonetwork-ui/util/shared'
 import { AuthService } from '@geonetwork-ui/api/repository/gn4'
+import { NavigationApproachComponent } from '../navigation-approach/navigation-approach.component'
+
 
 marker('datahub.header.myfavorites')
 marker('datahub.header.lastRecords')
@@ -59,6 +61,21 @@ export class HomeHeaderComponent {
       (route) =>
         route.url[0].path === ROUTER_ROUTE_NEWS ||
         route.url[0].path === ROUTER_ROUTE_SEARCH
+    )
+  )
+
+  isDataOrHomeRoute$ = this.routerFacade.currentRoute$.pipe(
+    map(
+      (route) =>
+        route.url[0].path === ROUTER_ROUTE_SEARCH ||
+        route.url[0].path === ROUTER_ROUTE_NEWS
+    )
+  )
+
+  isApproachRoute$ = this.routerFacade.currentRoute$.pipe(
+    map(
+      (route) =>
+        route.url[0].path === ROUTER_ROUTE_APPROACH
     )
   )
 
