@@ -27,3 +27,11 @@
     margin: 0 -1.25rem;
   }
 }
+
+.badge {
+  border-radius: 20px;
+  padding: 9px;
+  margin-top: 12px;
+  width: 40px;
+  height: 40px;
+}

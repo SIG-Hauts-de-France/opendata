@@ -6,11 +6,16 @@
       ? 'decoration-primary'
       : 'decoration-transparent hover:decoration-primary transition-colors'
   "
-  class="hidden sm:block sm:py-4 uppercase truncate text-white underline decoration-4 underline-offset-[19px]"
+  class="hidden sm:block sm:py-4 uppercase truncate text-white underline decoration-[7px] underline-offset-[16px]"
   translate
 >
   {{ l.label }}
 </button>
+<datahub-dropdown-button label="datahub.header.approach">
+  <a href="#">Link 1</a>
+  <a href="#">Link 2</a>
+  <a href="#">Link 3</a>
+</datahub-dropdown-button>
 <button
   (click)="toggleMobileMenu()"
   class="uppercase truncate text-white bg-primary w-full flex justify-start cursor-pointer z-50 sm:hidden"

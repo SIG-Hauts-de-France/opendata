@@ -30,10 +30,10 @@ export class NavigationMenuComponent {
       link: `${ROUTER_ROUTE_SEARCH}`,
       label: 'datahub.header.datasets',
     },
-    {
-      link: `${ROUTER_ROUTE_APPROACH}`,
-      label: 'datahub.header.approach',
-    },
+    // {
+    //   link: `${ROUTER_ROUTE_APPROACH}`,
+    //   label: 'datahub.header.approach',
+    // },
   ]
 
   activeLink$ = this.routerFacade.currentRoute$.pipe(
@@ -51,4 +51,5 @@ export class NavigationMenuComponent {
   toggleMobileMenu() {
     this.displayMobileMenu = !this.displayMobileMenu
   }
+
 }

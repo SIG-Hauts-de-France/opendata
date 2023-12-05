@@ -36,10 +36,9 @@ export class SearchFiltersComponent implements OnInit {
   ngOnInit(): void {
     this.searchConfig = (
       getOptionalSearchConfig().ADVANCED_FILTERS || [
-        'publisher',
+        'topic',
         'format',
         'publicationYear',
-        'topic',
         'isSpatial',
         'license',
       ]

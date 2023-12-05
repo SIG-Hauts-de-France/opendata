@@ -77,6 +77,8 @@ import { RecordRelatedRecordsComponent } from './record/record-related-records/r
 import { DatahubRouterService } from './router/datahub-router.service'
 
 import { LinkMenuComponent } from './home/link-menu/link-menu.component'
+import { ThematicListComponent } from './home/news-page/themes/thematic-list.component'
+import { DropdownButtonComponent } from './home/navigation-dropdown-button/navigation-dropdown-button.component'
 
 export const metaReducers: MetaReducer[] = !environment.production ? [] : []
 // https://github.com/nrwl/nx/issues/191
@@ -102,7 +104,9 @@ export const metaReducers: MetaReducer[] = !environment.production ? [] : []
     RecordOtherlinksComponent,
     RecordDownloadsComponent,
     RecordApisComponent,
-    LinkMenuComponent
+    LinkMenuComponent,
+    ThematicListComponent,
+    DropdownButtonComponent
   ],
   imports: [
     BrowserModule,
