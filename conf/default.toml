@@ -110,7 +110,7 @@ title_font = "'Etelka Text Pro Bold', Arial"
 # This section contains settings used for fine-tuning the metadata quality experience
 [metadata-quality]
 # By default the widget is not activated to enable it, just add this parameter.
-# enabled = true
+enabled = true
 # If u want to use metadata quality widget this configuration is required
 
 # if you add an indexed field to calculate the qualityScore, the datahub search allow you to sort on this field with this parameter
