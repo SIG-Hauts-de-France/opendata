@@ -120,7 +120,7 @@ enabled = true
 # allow you to hide the widget in detail
 # display_widget_in_detail = false
 # allow you to hide the widget in search list
-# display_widget_in_search = false
+display_widget_in_search = false
 # If you want see the widget in the two locations, don't fill theses configurations
 
 # By default the window popup all fields to view if they are filled or not but you can hide some
