@@ -7,6 +7,7 @@ import { filter, map, mergeMap } from 'rxjs/operators'
 import { OrganizationsServiceInterface } from '@geonetwork-ui/common/domain/organizations.service.interface'
 import { Organization } from '@geonetwork-ui/common/domain/record'
 import { MdViewFacade } from '@geonetwork-ui/feature/record'
+import { AuthService } from '@geonetwork-ui/api/repository/gn4'
 
 @Component({
   selector: 'datahub-record-metadata',
@@ -55,12 +56,19 @@ export class RecordMetadataComponent {
   errorTypes = ErrorType
   selectedTabIndex$ = new BehaviorSubject(0)
 
+  
+
   constructor(
     public facade: MdViewFacade,
     private searchService: SearchService,
     private sourceService: SourcesService,
-    private orgsService: OrganizationsServiceInterface
+    private orgsService: OrganizationsServiceInterface,
+    private authService: AuthService,
   ) {}
+
+  isAuthenticated$ = this.authService
+    .authReady()
+    .pipe(map((user) => !!user?.id))
 
   onTabIndexChange(index: number): void {
     this.selectedTabIndex$.next(index)
