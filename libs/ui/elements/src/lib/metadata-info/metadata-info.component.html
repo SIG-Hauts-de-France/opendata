@@ -14,8 +14,23 @@
   </gn-ui-content-ghost>
 </div>
 
+<ng-container *ngIf="metadata.themes?.length">
+  <p class="mt-3 font-medium text-primary text-sm" translate>
+    record.metadata.themes
+  </p>
+  <div class="mb-9 sm:mb-16">
+    <gn-ui-badge
+      class="inline-block mr-2 mb-2 lowercase"
+      (click)="onThemeClick(theme)"
+      [clickable]="true"
+      *ngFor="let theme of metadata.themes"
+      >{{ theme }}</gn-ui-badge
+    >
+  </div>
+</ng-container>
+
 <ng-container *ngIf="metadata.keywords?.length">
-  <p class="mb-3 font-medium text-primary text-sm" translate>
+  <p class="mt-3 font-medium text-primary text-sm" translate>
     record.metadata.keywords
   </p>
   <div class="mb-9 sm:mb-16">
@@ -52,6 +67,12 @@
       <p class="text-sm" translate>record.metadata.updatedOn</p>
       <p class="text-primary font-medium mt-1">
         {{ metadata.recordUpdated && metadata.recordUpdated.toLocaleString() }}
+      </p>
+    </div>
+    <div *ngIf="metadata.recordCreated">
+      <p class="text-sm" translate>record.metadata.createdOn</p>
+      <p class="text-primary font-medium mt-1">
+        {{ metadata.recordCreated && metadata.recordCreated.toLocaleString() }}
       </p>
     </div>
     <div *ngIf="updateFrequency">

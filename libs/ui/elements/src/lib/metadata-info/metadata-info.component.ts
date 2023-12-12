@@ -17,6 +17,7 @@ export class MetadataInfoComponent {
   @Input() metadata: Partial<DatasetRecord>
   @Input() incomplete: boolean
   @Output() keyword = new EventEmitter<string>()
+  @Output() theme = new EventEmitter<string>()
   updatedTimes: number
 
   get hasUsage() {
@@ -53,5 +54,9 @@ export class MetadataInfoComponent {
 
   onKeywordClick(keyword: string) {
     this.keyword.emit(keyword)
+  }
+
+  onThemeClick(theme: string) {
+    this.theme.emit(theme)
   }
 }
