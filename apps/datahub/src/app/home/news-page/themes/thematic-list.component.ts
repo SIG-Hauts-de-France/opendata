@@ -67,6 +67,8 @@ export class ThematicListComponent implements OnInit {
         return '&#xe964;';
       case 'utilitiesCommunication':
         return '&#xe904;';
+      case 'health':
+        return '&#xe951;';
       default:
         return '&#xe985;';
     }
