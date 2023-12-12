@@ -59,4 +59,22 @@ export class MetadataInfoComponent {
   onThemeClick(theme: string) {
     this.theme.emit(theme)
   }
+
+  get isNew(): boolean {
+    const oneMonthInMillis = 30 * 24 * 60 * 60 * 1000;
+    const currentDate = new Date().getTime();
+    const recordCreatedDate = this.metadata.recordCreated?.getTime() || 0;
+    const difference = currentDate - recordCreatedDate;
+
+    return difference < oneMonthInMillis;
+  }
+
+  get isUpdated(): boolean {
+    const oneMonthInMillis = 30 * 24 * 60 * 60 * 1000;
+    const currentDate = new Date().getTime();
+    const recordCreatedDate = this.metadata.recordUpdated?.getTime() || 0;
+    const difference = currentDate - recordCreatedDate;
+
+    return difference < oneMonthInMillis;
+  }
 }

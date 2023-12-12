@@ -1,3 +1,18 @@
+<ng-container>
+    <button
+      *ngIf="isNew"
+      class="inline-block uppercase bg-secondary text-white news-button"
+      translate
+      >record.metadata.isNew</button
+    >
+    <button
+      *ngIf="isUpdated"
+      class="inline-block uppercase bg-primary text-white news-button"
+      translate
+      >record.metadata.isUpdated</button
+    >
+</ng-container>
+
 <p
   class="text-[28px] text-title text-center mb-6 font-title sm:text-left"
   translate
