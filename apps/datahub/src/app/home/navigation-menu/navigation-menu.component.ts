@@ -1,13 +1,13 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core'
+import { ChangeDetectionStrategy, Component } from '@angular/core'
 import { marker } from '@biesbjerg/ngx-translate-extract-marker'
 import {
-  RouterFacade,
   ROUTER_ROUTE_SEARCH,
+  RouterFacade,
 } from '@geonetwork-ui/feature/router'
 import { map } from 'rxjs/operators'
 import {
-  ROUTER_ROUTE_NEWS,
   ROUTER_ROUTE_APPROACH,
+  ROUTER_ROUTE_NEWS,
 } from '../../router/constants'
 
 marker('datahub.header.news')
@@ -20,6 +20,7 @@ marker('datahub.header.organisations')
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavigationMenuComponent {
+  open = ''
   displayMobileMenu = false
   tabLinks = [
     {
@@ -30,10 +31,23 @@ export class NavigationMenuComponent {
       link: `${ROUTER_ROUTE_SEARCH}`,
       label: 'datahub.header.datasets',
     },
-    // {
-    //   link: `${ROUTER_ROUTE_APPROACH}`,
-    //   label: 'datahub.header.approach',
-    // },
+    {
+      children: [
+        {
+          link: `${ROUTER_ROUTE_NEWS}`,
+          label: 'datahub.header.news',
+        },
+        {
+          link: `${ROUTER_ROUTE_SEARCH}`,
+          label: 'datahub.header.datasets',
+        },
+        {
+          link:`${ROUTER_ROUTE_APPROACH}`,
+          label:`datahub.header.approach`,
+        }
+      ],
+      label: 'datahub.header.approach',
+    }
   ]
 
   activeLink$ = this.routerFacade.currentRoute$.pipe(
