@@ -24,12 +24,17 @@ export class ThematicListComponent implements OnInit {
     private fieldsService: FieldsService
   ) {}
 
-  navigateToSearch(topic: string): void {
-    this.router.navigate(['/search'], { queryParams: { topic: topic } });
+  navigateToSearch(tag: string): void {
+    this.router.navigate(['/search'], { queryParams: { tag: tag } });
   }
 
   getTopicsWithDatasetCount(): void {
-    const thematicField = 'topic';
+    const thematicField = 'tag';
+    const themes_hdf = [
+      'ADMINISTRATION', 'AMENAGEMENT', 'ECONOMIE',
+      'EMPLOI', 'ENVIRONNEMENT', 'FORMATION',
+      'REFERENTIEL', 'SOCIETE', 'TRANSPORT',
+    ];
   
     this.fieldsService.getAvailableValues(thematicField).subscribe(themesAvailable => {
       for (const theme of themesAvailable) {
@@ -37,38 +42,38 @@ export class ThematicListComponent implements OnInit {
         const datasetCount = match ? parseInt(match[1], 10) : 0;
         const name = theme.value.toString();
         const label = theme.label.replace(/\s*\(\d+\)\s*/, '');
-  
-        this.themes.push({
-          name: name,
-          label: label.trim() || 'Pas de thématique',
-          datasetCount: datasetCount
-        });
+
+        if (themes_hdf.includes(name)) {
+          this.themes.push({
+            name: name,
+            label: label.trim() || 'Pas de thématique',
+            datasetCount: datasetCount
+          });
+        }
       }
     });
   }
 
   getIconContent(themeName: string): string {
     switch (themeName) {
-      case 'biota':
-        return '&#xe935;';
-      case 'planningCadastre':
+      case 'AMENAGEMENT':
         return '&#xe92c;';
-      case 'imageryBaseMapsEarthCover':
+      case 'FORMATION':
+        return '&#xe97f;';
+      case 'REFERENTIEL':
         return '&#xe929;';
-      case 'economy':
+      case 'ECONOMIE':
         return '&#xe922;';
-      case 'environment':
+      case 'ENVIRONNEMENT':
         return '&#xe932;';
-      case 'transportation':
+      case 'TRANSPORT':
         return '&#xe93e;';
-      case 'boundaries':
+      case 'ADMINISTRATION':
         return '&#xe92a;';
-      case 'society':
+      case 'SOCIETE':
         return '&#xe964;';
-      case 'utilitiesCommunication':
-        return '&#xe904;';
-      case 'health':
-        return '&#xe951;';
+      case 'EMPLOI':
+        return '&#xe90c;'
       default:
         return '&#xe985;';
     }

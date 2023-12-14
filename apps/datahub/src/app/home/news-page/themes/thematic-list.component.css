@@ -1,7 +1,7 @@
 .thematic-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 0px;
 }
 
 .theme-item {
