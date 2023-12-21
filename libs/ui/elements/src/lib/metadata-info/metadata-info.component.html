@@ -79,15 +79,27 @@
     class="py-4 px-6 rounded bg-gray-100 grid grid-cols-2 gap-y-[10px] gap-x-[20px] text-gray-700 info-grid"
   >
     <div *ngIf="metadata.recordUpdated">
-      <p class="text-sm" translate>record.metadata.updatedOn</p>
+      <p class="text-sm" translate>record.metadata.recordUpdated</p>
       <p class="text-primary font-medium mt-1">
         {{ metadata.recordUpdated && metadata.recordUpdated.toLocaleString() }}
       </p>
     </div>
     <div *ngIf="metadata.recordCreated">
-      <p class="text-sm" translate>record.metadata.createdOn</p>
+      <p class="text-sm" translate>record.metadata.recordCreated</p>
       <p class="text-primary font-medium mt-1">
         {{ metadata.recordCreated && metadata.recordCreated.toLocaleString() }}
+      </p>
+    </div>
+    <div *ngIf="metadata.datasetUpdated">
+      <p class="text-sm" translate>record.metadata.datasetUpdated</p>
+      <p class="text-primary font-medium mt-1">
+        {{ metadata.datasetUpdated && metadata.datasetUpdated.toLocaleString() }}
+      </p>
+    </div>
+    <div *ngIf="metadata.datasetCreated">
+      <p class="text-sm" translate>record.metadata.datasetCreated</p>
+      <p class="text-primary font-medium mt-1">
+        {{ metadata.datasetCreated && metadata.datasetCreated.toLocaleString() }}
       </p>
     </div>
     <div *ngIf="updateFrequency">
