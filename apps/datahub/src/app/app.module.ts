@@ -58,6 +58,7 @@ import { AppComponent } from './app.component'
 import { HeaderBadgeButtonComponent } from './home/header-badge-button/header-badge-button.component'
 import { HomeHeaderComponent } from './home/home-header/home-header.component'
 import { HomePageComponent } from './home/home-page/home-page.component'
+import { NavigationApproachComponent } from './home/navigation-approach/navigation-approach.component'
 import { NavigationMenuComponent } from './home/navigation-menu/navigation-menu.component'
 import { KeyFiguresComponent } from './home/news-page/key-figures/key-figures.component'
 import { LastCreatedComponent } from './home/news-page/last-created/last-created.component'
@@ -66,7 +67,6 @@ import { OrganisationsPageComponent } from './home/organisations-page/organisati
 import { SearchFiltersComponent } from './home/search/search-filters/search-filters.component'
 import { SearchPageComponent } from './home/search/search-page/search-page.component'
 import { HeaderRecordComponent } from './record/header-record/header-record.component'
-import { NavigationApproachComponent } from './home/navigation-approach/navigation-approach.component'
 import { NavigationBarComponent } from './record/navigation-bar/navigation-bar.component'
 import { RecordApisComponent } from './record/record-apis/record-apis.component'
 import { RecordDownloadsComponent } from './record/record-downloads/record-downloads.component'
@@ -78,7 +78,6 @@ import { DatahubRouterService } from './router/datahub-router.service'
 
 import { LinkMenuComponent } from './home/link-menu/link-menu.component'
 import { ThematicListComponent } from './home/news-page/themes/thematic-list.component'
-import { DropdownButtonComponent } from './home/navigation-dropdown-button/navigation-dropdown-button.component'
 
 export const metaReducers: MetaReducer[] = !environment.production ? [] : []
 // https://github.com/nrwl/nx/issues/191
@@ -106,7 +105,6 @@ export const metaReducers: MetaReducer[] = !environment.production ? [] : []
     RecordApisComponent,
     LinkMenuComponent,
     ThematicListComponent,
-    DropdownButtonComponent
   ],
   imports: [
     BrowserModule,
