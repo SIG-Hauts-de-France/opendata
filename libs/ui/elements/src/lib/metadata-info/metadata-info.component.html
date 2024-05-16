@@ -1,3 +1,4 @@
+<!-- START THEM-->
 <div class="mb-6 md-description sm:mb-4 sm:pr-16">
   <gn-ui-content-ghost ghostClass="h-32" [showContent]="fieldReady('abstract')">
     <gn-ui-max-lines [maxLines]="6" *ngIf="metadata.abstract">
@@ -132,9 +133,106 @@
       </div>
     </div>
   </div>
+<!-- END THEM-->
+<!-- US START
+<ng-container>
+    <button
+      *ngIf="isNew"
+      class="inline-block uppercase bg-secondary text-white news-button"
+      translate
+      >record.metadata.isNew</button
+    >
+    <button
+      *ngIf="isUpdated"
+      class="inline-block uppercase bg-primary text-white news-button"
+      translate
+      >record.metadata.isUpdated</button
+    >
+</ng-container>
+
+<p
+  class="text-[28px] text-title text-center mb-6 font-title sm:text-left"
+  translate
+>
+  record.metadata.about
+</p>
+<div class="mb-6 md-description sm:mb-4 sm:pr-16">
+  <gn-ui-content-ghost ghostClass="h-32" [showContent]="fieldReady('abstract')">
+    <p
+      class="whitespace-pre-line break-words"
+      [innerHTML]="metadata.abstract | safe: 'html'"
+      *ngIf="metadata.abstract"
+      gnUiLinkify
+    ></p>
+  </gn-ui-content-ghost>
+</div>
+
+<ng-container *ngIf="metadata.extras?.themesSIG?.length">
+  <p class="mt-3 font-medium text-primary text-sm" translate>
+    record.metadata.themes
+  </p>
+  <div class="mb-5">
+    <gn-ui-badge
+      class="inline-block mr-2 mb-2 lowercase"
+      (click)="onThemeSIGClick(theme)"
+      [clickable]="true"
+      *ngFor="let theme of metadata.extras?.themesSIG"
+      >{{ theme }}</gn-ui-badge
+    >
+  </div>
+</ng-container>
+
+<ng-container *ngIf="metadata.extras?.otherKeywords?.length">
+  <p class="mt-3 font-medium text-primary text-sm" translate>
+    record.metadata.keywords
+  </p>
+  <div class="mb-5">
+    <gn-ui-badge
+      class="inline-block mr-2 mb-2 lowercase"
+      (click)="onOtherKeywordClick(keyword)"
+      [clickable]="true"
+      *ngFor="let keyword of metadata.extras?.otherKeywords"
+      >{{ keyword }}</gn-ui-badge
+    >
+  </div>
+</ng-container>
+
+<ng-container *ngIf="metadata.extras?.placeKeywords?.length">
+  <p class="mt-3 font-medium text-primary text-sm" translate>
+    search.filters.placeKeywords
+  </p>
+  <div class="mb-5">
+    <gn-ui-badge
+      class="inline-block mr-2 mb-2 lowercase"
+      (click)="onPlaceKeywordClick(keyword)"
+      [clickable]="true"
+      *ngFor="let keyword of metadata.extras?.placeKeywords"
+      >{{ keyword }}</gn-ui-badge
+    >
+  </div>
+</ng-container>
+
+<div
+  *ngIf="
+      metadata.lineage ||
+      metadata.recordUpdated ||
+      metadata.updateFrequency ||
+      metadata.status
+    "
+>
+  <p class="mt-3 font-medium text-primary text-sm" translate>record.metadata.origin</p>
+  <p
+    *ngIf="metadata.lineage"
+    class="mb-5 pt-4 whitespace-pre-line break-words"
+    gnUiLinkify
+  >
+    {{ metadata.lineage }}
+  </p>
+-->
   <div
     class="py-6 px-6 rounded bg-gray-100 grid grid-cols-2 gap-y-6 gap-x-[20px] text-gray-700"
   >
+    <!-- START THEM -->
     <div *ngIf="metadata.recordCreated">
       <p class="text-sm" translate>record.metadata.creation</p>
       <p class="text-primary font-medium mt-1">
@@ -145,8 +243,27 @@
       <p class="text-sm" translate>record.metadata.publication</p>
       <p class="text-primary font-medium mt-1">
         {{ metadata.recordPublished.toLocaleDateString() }}
+         <!-- END THEM -->
+    <!-- US
+    <div>
+        <p class="text-sm" translate>record.metadata.datasetCreated</p>
+        <p class="text-primary font-medium mt-1">
+          {{ metadata.datasetCreated && metadata.datasetCreated.toLocaleDateString() || '-' }}
+        </p>
+    </div>
+    <div>
+        <p class="text-sm" translate>record.metadata.datasetUpdated</p>
+        <p class="text-primary font-medium mt-1">
+          {{ metadata.datasetUpdated && metadata.datasetUpdated.toLocaleDateString() || '-'  }}
+        </p>
+    </div>
+    <div>
+      <p class="text-sm" translate>record.metadata.recordUpdated</p>
+      <p class="text-primary font-medium mt-1">
+        {{ metadata.recordUpdated && metadata.recordUpdated.toLocaleDateString() || '-' }} -->
       </p>
     </div>
+    
     <div *ngIf="updateFrequency">
       <p class="text-sm" translate>record.metadata.updateFrequency</p>
       <p
@@ -157,6 +274,7 @@
         {{ updateFrequency }}
       </p>
     </div>
+    <!-- START THEM -->
     <div *ngIf="metadata.languages">
       <p class="text-sm mb-1" translate>record.metadata.languages</p>
       <div class="flex flex-row gap-1 flex-wrap">
@@ -199,11 +317,26 @@
       </div>
     </div>
   </div>
-</gn-ui-expandable-panel>
-<gn-ui-expandable-panel
+<!-- END -->
+<!-- US
+<div>
+  <p class="mt-3 font-medium text-primary text-sm" translate>record.metadata.usage</p>
+  <div class="py-4 px-6 rounded bg-gray-100 text-gray-700 flex flex-wrap gap-2">
+    <span
+      class="text-primary font-medium"
+      *ngFor="let usage of usages"
+      gnUiLinkify
+    >
+      {{ usage }}
+    </span>
+    <span class="text-primary font-medium noUsage" *ngIf="!hasUsage">
+      {{ 'record.metadata.noUsage' | translate }}
+    </span> -->
+<div
   *ngIf="metadata.landingPage"
-  [title]="'record.metadata.technical' | translate"
+  title]="'record.metadata.technical' | translate"
 >
+  <!-- START THEM -->
   <div class="flex flex-col gap-4 mr-4 py-5 rounded text-gray-700">
     <div *ngIf="metadata.recordUpdated">
       <p class="text-sm" translate>record.metadata.updatedOn</p>
@@ -244,9 +377,18 @@
         <gn-ui-badge
           class="inline-block mr-2 mb-2 lowercase"
           *ngFor="let topic of metadata.topics"
-          >{{ topic }}</gn-ui-badge
-        >
+          >{{ topic }}</gn-ui-badge><!-- END THEM -->
+<!-- <p class="mt-3 font-medium text-primary text-sm" translate>record.metadata.details</p>
+  <div class="py-5 px-5 rounded bg-gray-100 text-gray-700">
+    <p class="text-sm" translate>record.metadata.sheet</p>
+    <p class="text-primary font-medium mt-1" translate>
+      <a [href]="metadata.landingPage" target="_blank">
+        <mat-icon
+          class="material-symbols-outlined inline-block align-bottom pt-1.5 text-xs text-black !w-[20px]"
+          >open_in_new</mat-icon>
+          -->
+        
       </div>
     </div>
   </div>
-</gn-ui-expandable-panel>
+</div>

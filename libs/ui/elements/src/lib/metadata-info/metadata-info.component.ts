@@ -21,6 +21,9 @@ export class MetadataInfoComponent {
   @Input() metadata: Partial<DatasetRecord>
   @Input() incomplete: boolean
   @Output() keyword = new EventEmitter<Keyword>()
+  @Output() otherKeyword = new EventEmitter<string>()
+  @Output() placeKeyword = new EventEmitter<string>()
+  @Output() themeSIG = new EventEmitter<string>()
   updatedTimes: number
 
   get hasUsage() {
@@ -96,5 +99,33 @@ export class MetadataInfoComponent {
 
   onKeywordClick(keyword: Keyword) {
     this.keyword.emit(keyword)
+  }
+  
+  onPlaceKeywordClick(keyword: string) {
+    this.placeKeyword.emit(keyword);
+  }
+
+  onOtherKeywordClick(keyword: string) {
+    this.otherKeyword.emit(keyword)
+  }
+
+  onThemeSIGClick(theme: string) {
+    this.themeSIG.emit(theme)
+  }
+
+  private isLessOneMonth(date: Date) {
+    const oneMonthInMillis = 30 * 24 * 60 * 60 * 1000;
+    const currentDate = new Date().getTime();
+    const recordCreatedDate = date?.getTime() || 0;
+    const difference = currentDate - recordCreatedDate;
+    return difference < oneMonthInMillis;
+  }
+
+  get isNew(): boolean {
+    return this.isLessOneMonth(this.metadata.recordCreated);
+  }
+
+  get isUpdated(): boolean {
+    return this.isLessOneMonth(this.metadata.resourceUpdated);
   }
 }

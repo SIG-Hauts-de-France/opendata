@@ -11,3 +11,8 @@
 :host ::ng-deep gn-ui-copy-text-button button mat-icon {
   transform: scale(0.8);
 }
+.news-button {
+  border-radius: 5px;
+  margin: 6px;
+  padding: 6px;
+}
