@@ -224,6 +224,12 @@
         {{ metadata.recordPublished && metadata.recordPublished.toLocaleDateString() || '-' }} 
       </p>
     </div>
+    <div *ngIf="metadata.recordUpdated">
+      <p class="text-sm" translate>record.metadata.updatedOn</p>
+      <p class="text-primary font-medium">
+        {{ metadata.recordUpdated && metadata.recordUpdated.toLocaleString() }}
+      </p>
+    </div>
 
     <div *ngIf="updateFrequency">
       <p class="text-sm" translate>record.metadata.updateFrequency</p>
@@ -299,12 +305,12 @@
 class="px-6 rounded bg-gray-100 gap-y-6 gap-x-[20px] text-gray-700"
 >
   <div class="flex flex-col gap-4 mr-4 py-5 rounded text-gray-700">
-    <div *ngIf="metadata.recordUpdated">
+    <!-- <div *ngIf="metadata.recordUpdated">
       <p class="text-sm" translate>record.metadata.updatedOn</p>
       <p class="text-primary font-medium">
         {{ metadata.recordUpdated && metadata.recordUpdated.toLocaleString() }}
       </p>
-    </div>
+    </div> -->
     <div *ngIf="metadata.landingPage">
       <p class="text-sm" translate>record.metadata.sheet</p>
       <p class="text-primary font-medium" translate>
