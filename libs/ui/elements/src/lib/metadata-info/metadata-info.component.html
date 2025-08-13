@@ -221,13 +221,7 @@
     <div>
       <p class="text-sm" translate>record.metadata.recordUpdated</p>
       <p class="text-primary font-medium mt-1">
-        {{ metadata.recordPublished && metadata.recordPublished.toLocaleDateString() || '-' }} 
-      </p>
-    </div>
-    <div *ngIf="metadata.recordUpdated">
-      <p class="text-sm" translate>record.metadata.updatedOn</p>
-      <p class="text-primary font-medium">
-        {{ metadata.recordUpdated && metadata.recordUpdated.toLocaleString() }}
+        {{ metadata.recordUpdated && metadata.recordUpdated.toLocaleDateString() || '-' }} 
       </p>
     </div>
 
