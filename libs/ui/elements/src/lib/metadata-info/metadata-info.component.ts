@@ -39,7 +39,6 @@ export class MetadataInfoComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if ('metadata' in changes) {
-      console.log(this.metadata.keywords)
       this.otherKeywords = this.filterKeywords('other');
       this.placeKeywords = this.filterKeywords('place');
       this.themeSIGKeywords = this.metadata.keywords?.filter(k => this.thesaurusContains(k, 'themes_sig'));

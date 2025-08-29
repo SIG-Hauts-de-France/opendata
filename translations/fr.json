@@ -276,7 +276,7 @@
   "record.metadata.download": "Téléchargements",
   "record.metadata.formats": "Formats",
   "record.metadata.createdOn": "Créé le",
-  "record.metadata.datasetCreated": "Date de création de la donnée",
+  "record.metadata.datasetCreated": "Date de création de la fiche",
   "record.metadata.datasetUpdated": "Date de mise à jour de la donnée",
   "record.metadata.recordUpdated": "Date de mise à jour de la fiche",
   "record.metadata.isNew": "Nouveau",
