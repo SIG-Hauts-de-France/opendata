@@ -295,7 +295,7 @@
                             <gmd:identifier>
                                 <gmd:MD_Identifier>
                                     <gmd:code>
-                                        <gmx:Anchor xlink:href="https://geocatalogue.hautsdefrance.fr/geonetwork/srv/eng/thesaurus.download?ref=local.theme.themes_sig">geonetwork.thesaurus.local.theme.themes_sig</gmx:Anchor>
+                                        <gmx:Anchor xlink:href="https://geocatalogue.hautsdefrance.fr/geonetwork/srv/eng/thesaurus.download?ref=local.theme.thematiques_region_hdf">geonetwork.thesaurus.local.theme.thematiques_region_hdf</gmx:Anchor>
                                     </gmd:code>
                                 </gmd:MD_Identifier>
                             </gmd:identifier>

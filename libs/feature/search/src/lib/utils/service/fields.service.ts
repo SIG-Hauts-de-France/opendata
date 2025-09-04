@@ -63,7 +63,7 @@ export class FieldsService {
     tag: new SimpleSearchField('tag.default', this.injector, 'asc'),
     otherKeywords: new SimpleSearchField('th_otherKeywords-.default', this.injector, 'asc'),
     placeKeywords: new SimpleSearchField('keywordType-place.default', this.injector, 'asc'),
-    themesSIG: new SimpleSearchField('th_themes_sig.default', this.injector, 'asc'),
+    themesSIG: new SimpleSearchField('th_thematiques_region_hdf.default', this.injector, 'asc'),
     keyword: new MultilingualSearchField('tag', this.injector, 'desc', 'count'),
     documentStandard: new SimpleSearchField(
       'documentStandard',

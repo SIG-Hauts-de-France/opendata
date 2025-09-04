@@ -114,7 +114,7 @@ export class RecordMetadataComponent {
 
   onInfoKeywordClick(keyword: Keyword) {
     let queryParams;
-    if (keyword.thesaurus?.id && keyword.thesaurus?.id.indexOf('themes_sig')  !== -1) {
+    if (keyword.thesaurus?.id && keyword.thesaurus?.id.indexOf('thematiques_region_hdf')  !== -1) {
       queryParams = { themesSIG: keyword.label};
     } else if (keyword.type === 'place') {
       queryParams = { placeKeywords: keyword.label};

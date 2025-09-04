@@ -26,7 +26,7 @@ export class MetadataInfoComponent implements OnChanges {
   updatedTimes: number
   otherKeywords: Keyword[] = [];
   placeKeywords: Keyword[] = [];
-  themeSIGKeywords: Keyword[] = [];
+  themeRegionHdfKeywords: Keyword[] = [];
 
 
   private filterKeywords(type:string) {
@@ -41,7 +41,7 @@ export class MetadataInfoComponent implements OnChanges {
     if ('metadata' in changes) {
       this.otherKeywords = this.filterKeywords('other');
       this.placeKeywords = this.filterKeywords('place');
-      this.themeSIGKeywords = this.metadata.keywords?.filter(k => this.thesaurusContains(k, 'themes_sig'));
+      this.themeRegionHdfKeywords = this.metadata.keywords?.filter(k => this.thesaurusContains(k, 'thematiques_region_hdf'));
     }
   }
 

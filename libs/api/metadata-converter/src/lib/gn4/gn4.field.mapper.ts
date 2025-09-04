@@ -218,11 +218,11 @@ export class Gn4FieldMapper {
       },
       output
     ),
-    th_themes_sig: (output, source) => this.addExtra(
+    th_thematiques_region_hdf: (output, source) => this.addExtra(
       {
         themesSIG: getAsArray(
-          selectField<SourceWithUnknownProps[]>(source, 'th_themes_sig')
-        ).map((themeSIG) => selectTranslatedValue<string>(themeSIG, this.lang3)),
+          selectField<SourceWithUnknownProps[]>(source, 'th_thematiques_region_hdf')
+        ).map((themeRegionHDF) => selectTranslatedValue<string>(themeRegionHDF, this.lang3)),
       },
       output
     ),
