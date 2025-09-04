@@ -50,11 +50,11 @@
         </span>
         <p class="ml-2 mr-2" translate>record.metadata.type</p>
       </div>
-      <div *ngIf="metadata.recordUpdated" class="flex flex-row gap-1">
+      <!-- <div *ngIf="metadata.recordUpdated" class="flex flex-row gap-1">
         <p translate [translateParams]="{ date: lastUpdate }">
           record.metadata.lastUpdate
         </p>
-      </div>
+      </div> -->
       <div *ngIf="metadata.status" class="flex flex-row gap-2">
         <p>•</p>
         <p
@@ -64,3 +64,6 @@
     </div>
   </div>
 </header>
+<div class="container-lg mt-[-40px] z-20 sticky lg:mx-auto inset-x-0 top-[10px]">
+  <datahub-navigation-bar></datahub-navigation-bar>
+</div>

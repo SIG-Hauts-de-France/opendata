@@ -202,6 +202,30 @@ export class Gn4FieldMapper {
         this.lang3
       ),
     }),
+    "keywordType-place": (output, source) => this.addExtra(
+      {
+        placeKeywords: getAsArray(
+          selectField<SourceWithUnknownProps[]>(source, 'keywordType-place')
+        ).map((placeKeyword) => selectTranslatedValue<string>(placeKeyword, this.lang3)),
+      },
+      output
+    ),
+    "th_otherKeywords-": (output, source) => this.addExtra(
+      {
+        otherKeywords: getAsArray(
+          selectField<SourceWithUnknownProps[]>(source, 'th_otherKeywords-')
+        ).map((otherKeyword) => selectTranslatedValue<string>(otherKeyword, this.lang3)),
+      },
+      output
+    ),
+    th_thematiques_region_hdf: (output, source) => this.addExtra(
+      {
+        themesSIG: getAsArray(
+          selectField<SourceWithUnknownProps[]>(source, 'th_thematiques_region_hdf')
+        ).map((themeRegionHDF) => selectTranslatedValue<string>(themeRegionHDF, this.lang3)),
+      },
+      output
+    ),
     inspireTheme: (output, source) => ({
       ...output,
       topics: [
