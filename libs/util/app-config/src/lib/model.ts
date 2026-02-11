@@ -9,6 +9,8 @@ export interface GlobalConfig {
   WEB_COMPONENT_EMBEDDER_URL?: string
   LANGUAGES?: string[]
   CONTACT_EMAIL?: string
+  MATOMO_SITE_ID?: string
+  MATOMO_URL?: string
 }
 
 export interface LayerConfig {

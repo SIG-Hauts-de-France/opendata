@@ -101,6 +101,8 @@ export function loadAppConfig() {
           'web_component_embedder_url',
           'languages',
           'contact_email',
+          'matomo_site_id',
+          'matomo_url',
         ],
         warnings,
         errors
@@ -128,6 +130,9 @@ export function loadAppConfig() {
                 parsedGlobalSection.web_component_embedder_url,
               LANGUAGES: parsedGlobalSection.languages,
               CONTACT_EMAIL: parsedGlobalSection.contact_email,
+              MATOMO_SITE_ID: parsedGlobalSection.matomo_site_id,
+              MATOMO_URL: parsedGlobalSection.matomo_url,
+
             } as GlobalConfig)
 
       const parsedLayersSections = parseMultiConfigSection(
