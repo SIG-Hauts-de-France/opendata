@@ -5,11 +5,28 @@
 
 [global]
 
-matomo_site_id = "11"
-matomo_url = "//piwik.hautsdefrance.fr/"
+# matomo_site_id = "2"
+# matomo_url = "//matomo-hdf.neogeo.fr/"
 
 # This URL (relative or absolute) must point to the API endpoint of a GeoNetwork4 instance
-geonetwork4_api_url = "/geonetwork/srv/api"
+# geonetwork4_api_url = "https://geocatalogue-hdf.neogeo.fr/geonetwork/opendata/api"
+
+## DEV
+geonetwork4_api_url = "https://geocatalogue-hdf.neogeo.fr/geonetwork/opendata/api"
+matomo_site_id = "2"
+matomo_url = "//matomo-hdf.neogeo.fr/"
+
+## KALIF
+# geonetwork4_api_url = "https://geocatalogue-kalif.hautsdefrance.net/geonetwork/opendata/api"
+# matomo_site_id = "17"
+# matomo_url = "//piwik.hautsdefrance.fr/"
+
+## PROD
+# geonetwork4_api_url = "https://geocatalogue.hautsdefrance.fr/geonetwork/opendata/api"
+# matomo_site_id = "11"
+# matomo_url = "//piwik.hautsdefrance.fr/"
+
+
 datahub_url = "/datahub"
 # This should point to a proxy to avoid CORS errors on some requests (data preview, OGC capabilities etc.)
 # The actual URL will be appended after this path, e.g. : https://my.proxy/?url=http%3A%2F%2Fencoded.url%2Fows`

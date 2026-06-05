@@ -29,6 +29,7 @@
     "storybook-wc": "nx run webcomponents:build --output-hashing=none && nx run webcomponents:storybook",
     "build:storybook-wc": "nx run webcomponents:build --output-hashing=none && nx run webcomponents:build-storybook",
     "build:demo": "tools/webcomponent/prepare-wc-pages.sh",
+    "build:datahub": "nx build datahub --base-href='/'",
     "demo": "tools/webcomponent/prepare-wc-pages.sh --serve",
     "generate-api": "tools/generate-api.sh",
     "dev:ssr": "ng run formatter:serve-ssr",

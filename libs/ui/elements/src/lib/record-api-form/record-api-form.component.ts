@@ -73,6 +73,8 @@ export class RecordApiFormComponent {
   }
 
   parseOutputFormats() {
+    if (!this.apiBaseUrl) return
+    
     const apiUrl =
       this.apiBaseUrl.slice(-1) === '?'
         ? this.apiBaseUrl.slice(0, -1)
