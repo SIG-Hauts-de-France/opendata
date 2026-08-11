@@ -114,6 +114,11 @@ export const FORMATS = {
       'application/vnd.ogc.fg+json',
       'application/vnd.ogc.fg+json;compatibility=geojson',
     ],
+  },xml: {
+    extensions: ['xml'],
+    priority: 6,
+    color: '#c92bce',
+    mimeTypes: ['application/xml', 'text/xml'],
   },
 } as const
 
